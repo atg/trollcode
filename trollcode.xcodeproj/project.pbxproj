@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		752C7D5C14D5FC1700C9F213 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C7D5B14D5FC1700C9F213 /* Cocoa.framework */; };
 		752C7D6614D5FC1700C9F213 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D6414D5FC1700C9F213 /* InfoPlist.strings */; };
-		752C7D6814D5FC1700C9F213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D6714D5FC1700C9F213 /* main.m */; };
 		752C7D6C14D5FC1700C9F213 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D6A14D5FC1700C9F213 /* Credits.rtf */; };
-		752C7D6F14D5FC1700C9F213 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */; };
 		752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D7014D5FC1700C9F213 /* MainMenu.xib */; };
+		752C7D8214D5FD6400C9F213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D7E14D5FD6400C9F213 /* main.m */; };
+		752C7D8314D5FD6400C9F213 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +23,12 @@
 		752C7D6014D5FC1700C9F213 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		752C7D6314D5FC1700C9F213 /* trollcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "trollcode-Info.plist"; sourceTree = "<group>"; };
 		752C7D6514D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		752C7D6714D5FC1700C9F213 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		752C7D6914D5FC1700C9F213 /* trollcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "trollcode-Prefix.pch"; sourceTree = "<group>"; };
 		752C7D6B14D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		752C7D6D14D5FC1700C9F213 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
-		752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
 		752C7D7114D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		752C7D7E14D5FD6400C9F213 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		752C7D7F14D5FD6400C9F213 /* TCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
+		752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
+		752C7D8114D5FD6400C9F213 /* trollcode-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "trollcode-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +46,7 @@
 		752C7D4C14D5FC1600C9F213 = {
 			isa = PBXGroup;
 			children = (
+				752C7D7D14D5FD6400C9F213 /* source */,
 				752C7D6114D5FC1700C9F213 /* trollcode */,
 				752C7D5A14D5FC1700C9F213 /* Frameworks */,
 				752C7D5814D5FC1700C9F213 /* Products */,
@@ -82,8 +83,6 @@
 		752C7D6114D5FC1700C9F213 /* trollcode */ = {
 			isa = PBXGroup;
 			children = (
-				752C7D6D14D5FC1700C9F213 /* TCAppDelegate.h */,
-				752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */,
 				752C7D7014D5FC1700C9F213 /* MainMenu.xib */,
 				752C7D6214D5FC1700C9F213 /* Supporting Files */,
 			);
@@ -95,11 +94,20 @@
 			children = (
 				752C7D6314D5FC1700C9F213 /* trollcode-Info.plist */,
 				752C7D6414D5FC1700C9F213 /* InfoPlist.strings */,
-				752C7D6714D5FC1700C9F213 /* main.m */,
-				752C7D6914D5FC1700C9F213 /* trollcode-Prefix.pch */,
 				752C7D6A14D5FC1700C9F213 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		752C7D7D14D5FD6400C9F213 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D7E14D5FD6400C9F213 /* main.m */,
+				752C7D7F14D5FD6400C9F213 /* TCAppDelegate.h */,
+				752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */,
+				752C7D8114D5FD6400C9F213 /* trollcode-Prefix.pch */,
+			);
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,8 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				752C7D6814D5FC1700C9F213 /* main.m in Sources */,
-				752C7D6F14D5FC1700C9F213 /* TCAppDelegate.m in Sources */,
+				752C7D8214D5FD6400C9F213 /* main.m in Sources */,
+				752C7D8314D5FD6400C9F213 /* TCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +261,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
 				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -264,6 +273,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
 				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -288,6 +298,7 @@
 				752C7D7714D5FC1700C9F213 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
