@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		752C7D5C14D5FC1700C9F213 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C7D5B14D5FC1700C9F213 /* Cocoa.framework */; };
+		752C7D6614D5FC1700C9F213 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D6414D5FC1700C9F213 /* InfoPlist.strings */; };
+		752C7D6814D5FC1700C9F213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D6714D5FC1700C9F213 /* main.m */; };
+		752C7D6C14D5FC1700C9F213 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D6A14D5FC1700C9F213 /* Credits.rtf */; };
+		752C7D6F14D5FC1700C9F213 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */; };
+		752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D7014D5FC1700C9F213 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		752C7D5714D5FC1700C9F213 /* trollcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trollcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		752C7D5B14D5FC1700C9F213 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		752C7D5E14D5FC1700C9F213 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		752C7D5F14D5FC1700C9F213 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		752C7D6014D5FC1700C9F213 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		752C7D6314D5FC1700C9F213 /* trollcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "trollcode-Info.plist"; sourceTree = "<group>"; };
+		752C7D6514D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		752C7D6714D5FC1700C9F213 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		752C7D6914D5FC1700C9F213 /* trollcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "trollcode-Prefix.pch"; sourceTree = "<group>"; };
+		752C7D6B14D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		752C7D6D14D5FC1700C9F213 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
+		752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
+		752C7D7114D5FC1700C9F213 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		752C7D5414D5FC1700C9F213 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752C7D5C14D5FC1700C9F213 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		752C7D4C14D5FC1600C9F213 = {
+			isa = PBXGroup;
+			children = (
+				752C7D6114D5FC1700C9F213 /* trollcode */,
+				752C7D5A14D5FC1700C9F213 /* Frameworks */,
+				752C7D5814D5FC1700C9F213 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		752C7D5814D5FC1700C9F213 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D5714D5FC1700C9F213 /* trollcode.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		752C7D5A14D5FC1700C9F213 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D5B14D5FC1700C9F213 /* Cocoa.framework */,
+				752C7D5D14D5FC1700C9F213 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		752C7D5D14D5FC1700C9F213 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D5E14D5FC1700C9F213 /* AppKit.framework */,
+				752C7D5F14D5FC1700C9F213 /* CoreData.framework */,
+				752C7D6014D5FC1700C9F213 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		752C7D6114D5FC1700C9F213 /* trollcode */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D6D14D5FC1700C9F213 /* TCAppDelegate.h */,
+				752C7D6E14D5FC1700C9F213 /* TCAppDelegate.m */,
+				752C7D7014D5FC1700C9F213 /* MainMenu.xib */,
+				752C7D6214D5FC1700C9F213 /* Supporting Files */,
+			);
+			path = trollcode;
+			sourceTree = "<group>";
+		};
+		752C7D6214D5FC1700C9F213 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D6314D5FC1700C9F213 /* trollcode-Info.plist */,
+				752C7D6414D5FC1700C9F213 /* InfoPlist.strings */,
+				752C7D6714D5FC1700C9F213 /* main.m */,
+				752C7D6914D5FC1700C9F213 /* trollcode-Prefix.pch */,
+				752C7D6A14D5FC1700C9F213 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		752C7D5614D5FC1700C9F213 /* trollcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 752C7D7514D5FC1700C9F213 /* Build configuration list for PBXNativeTarget "trollcode" */;
+			buildPhases = (
+				752C7D5314D5FC1700C9F213 /* Sources */,
+				752C7D5414D5FC1700C9F213 /* Frameworks */,
+				752C7D5514D5FC1700C9F213 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = trollcode;
+			productName = trollcode;
+			productReference = 752C7D5714D5FC1700C9F213 /* trollcode.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		752C7D4E14D5FC1600C9F213 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 752C7D5114D5FC1600C9F213 /* Build configuration list for PBXProject "trollcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 752C7D4C14D5FC1600C9F213;
+			productRefGroup = 752C7D5814D5FC1700C9F213 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				752C7D5614D5FC1700C9F213 /* trollcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		752C7D5514D5FC1700C9F213 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752C7D6614D5FC1700C9F213 /* InfoPlist.strings in Resources */,
+				752C7D6C14D5FC1700C9F213 /* Credits.rtf in Resources */,
+				752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		752C7D5314D5FC1700C9F213 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				752C7D6814D5FC1700C9F213 /* main.m in Sources */,
+				752C7D6F14D5FC1700C9F213 /* TCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		752C7D6414D5FC1700C9F213 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				752C7D6514D5FC1700C9F213 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		752C7D6A14D5FC1700C9F213 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				752C7D6B14D5FC1700C9F213 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		752C7D7014D5FC1700C9F213 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				752C7D7114D5FC1700C9F213 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		752C7D7314D5FC1700C9F213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		752C7D7414D5FC1700C9F213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		752C7D7614D5FC1700C9F213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
+				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		752C7D7714D5FC1700C9F213 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
+				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		752C7D5114D5FC1600C9F213 /* Build configuration list for PBXProject "trollcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752C7D7314D5FC1700C9F213 /* Debug */,
+				752C7D7414D5FC1700C9F213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		752C7D7514D5FC1700C9F213 /* Build configuration list for PBXNativeTarget "trollcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752C7D7614D5FC1700C9F213 /* Debug */,
+				752C7D7714D5FC1700C9F213 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 752C7D4E14D5FC1600C9F213 /* Project object */;
+}
