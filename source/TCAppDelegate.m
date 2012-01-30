@@ -31,7 +31,7 @@ void TCNotifyHandler_Unresponsive(CGSNotificationType type, void *data, unsigned
     NSRunningApplication* xcode = TCCheckIsXcode(data);
     if (!xcode)
         return;
-    NSLog(@"Unresponsive");
+    NSLog(@"NOTIFY Unresponsive");
     [[NSApp delegate] becameResponsive:NO];
 }
 void TCNotifyHandler_Responsive(CGSNotificationType type, void *data, unsigned int dataLength, void *userData) {
@@ -41,6 +41,7 @@ void TCNotifyHandler_Responsive(CGSNotificationType type, void *data, unsigned i
     if (!xcode)
         return;
     
+    NSLog(@"NOTIFY Responsive");
     TCTroll(NO);
     [[NSApp delegate] becameResponsive:YES];
 }
@@ -79,18 +80,17 @@ void TCTroll(BOOL show) {
         [backingLayer addSublayer:trollLayer];
     });
     
-    if (show && ![trollWindow isVisible]) {
-        [trollLayer addAnimation:animation forKey:@"trolololol"];
-        [trollWindow orderFront:nil];
+    if (show) {
+        if (![trollWindow isVisible]) {
+            [trollLayer addAnimation:animation forKey:@"trolololol"];
+            [trollWindow orderFront:nil];
+        }
     }
     else {
+        NSLog(@"UNTROLL");
         [trollLayer removeAllAnimations];
         [trollWindow orderOut:nil];
     }
-}
-
-void TCSubmitInfo(NSDictionary* info) {
-    
 }
 
 @implementation TCAppDelegate
@@ -106,11 +106,6 @@ void TCSubmitInfo(NSDictionary* info) {
         CGSGlobalError(err, "");
         [NSApp terminate:nil];
     }
-    
-    //[self performSelector:@selector(runWindow) withObject:nil afterDelay:0.5];
-}
-- (void)runWindow {
-    TCTroll(YES);
 }
 
 - (void)becameResponsive:(BOOL)paused {
@@ -120,10 +115,24 @@ void TCSubmitInfo(NSDictionary* info) {
         timer = nil;
     }
     if (paused) {
+        [self processTime];
+        startTime = 0;
         return;
     }
     
+    startTime = [NSDate timeIntervalSinceReferenceDate];
     timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fired:) userInfo:nil repeats:YES];
+}
+- (NSTimeInterval)adjustedTime {
+    NSTimeInterval t = [NSDate timeIntervalSinceReferenceDate] - startTime;
+    if (t < 0.0)
+        t = 0.0;
+    return t;
+}
+- (void)processTime {
+    NSTimeInterval t = [self adjustedTime];
+    
+    // Log in a file somewhere
 }
 - (pid_t)pid {
     return [[[NSRunningApplication runningApplicationsWithBundleIdentifier:XCODE_IDENTIFIER] lastObject] processIdentifier];
@@ -133,6 +142,7 @@ void TCSubmitInfo(NSDictionary* info) {
     // Is Xcode responsive?
     
     pid_t xcodePid = [self pid];
+    NSLog(@"xcodePid = %d", xcodePid);
     if (xcodePid == 0)
         goto giveUp;
     
@@ -140,19 +150,23 @@ void TCSubmitInfo(NSDictionary* info) {
     ProcessSerialNumber psn;
     OSStatus status = GetProcessForPID(xcodePid, &psn);
     
+    NSLog(@"status = %d", status);
     if (status != 0)
         goto giveUp;
     
     bool b = CGSEventIsAppUnresponsive(conn, &psn);
+    NSLog(@"Responsive: %d : %lf", b, [self adjustedTime]);
     if (b) {
         // Still trollin'
-        TCTroll(YES);
+        if ([self adjustedTime] > 0.5)
+            TCTroll(YES);
     }
     else {
         TCTroll(NO);
         [self becameResponsive:YES];
     }
 
+    return;
 giveUp:
     NSLog(@"Could not get process status");
     

@@ -17,11 +17,14 @@ void TCTroll(BOOL show);
 
 @interface TCAppDelegate : NSObject <NSApplicationDelegate> {
     NSTimer* timer;
+    NSTimeInterval startTime;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 
 - (void)becameResponsive:(BOOL)paused;
 - (pid_t)pid;
+- (NSTimeInterval)adjustedTime;
+- (void)processTime;
 
 @end
