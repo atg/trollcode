@@ -142,7 +142,7 @@ void TCTroll(BOOL show) {
     }
     
     // Send times once every 10 minutes
-    [NSTimer scheduledTimerWithTimeInterval:1 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:10 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
     
     NSMutableDictionary* registeredDefaults = [[NSMutableDictionary alloc] init];
     [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCShowTrollface"];
