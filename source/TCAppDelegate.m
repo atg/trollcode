@@ -142,7 +142,7 @@ void TCTroll(BOOL show) {
     }
     
     // Send times once every 10 minutes
-    [NSTimer scheduledTimerWithTimeInterval:10 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
     
     NSMutableDictionary* registeredDefaults = [[NSMutableDictionary alloc] init];
     [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCShowTrollface"];
@@ -201,15 +201,19 @@ void TCTroll(BOOL show) {
     
     NSString* trollcodev = [self versionForRunningApp:[NSRunningApplication currentApplication]];
     NSString* xcodev = [self versionForRunningApp:[[NSRunningApplication runningApplicationsWithBundleIdentifier:XCODE_IDENTIFIER] lastObject]];
+    NSString* nick = [[NSUserDefaults standardUserDefaults] valueForKey:@"TCNick"];
+    if (![nick length])
+        nick = @"anon";
+    
     NSString* submitURLString = [NSString stringWithFormat:@"http://chocolatapp.com/trollcode-server/submit.php?"
-                                 @"trollcodev=%@&xcodev=%@&times=%@",
-                                 trollcodev, xcodev, runningTimes];
+                                 @"trollcodev=%@&xcodev=%@&times=%@&nick=%@",
+                                 trollcodev, xcodev, runningTimes, nick];
     
     NSLog(@"Submit URL = %@", submitURLString);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSURL* submitURL = [NSURL URLWithString:submitURLString];
-        NSString* result = nil;//[NSString stringWithContentsOfURL:submitURL encoding:NSUTF8StringEncoding error:NULL];
+        NSString* result = [NSString stringWithContentsOfURL:submitURL encoding:NSUTF8StringEncoding error:NULL];
         NSLog(@"Our server said: %@", result);
     });
 }
