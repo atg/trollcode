@@ -46,7 +46,7 @@ void TCNotifyHandler_Responsive(CGSNotificationType type, void *data, unsigned i
     [[NSApp delegate] becameResponsive:YES];
 }
 
-CGRect CGRectShrink(CGRect r, CGFloat f) {
+static CGRect CGRectShrink(CGRect r, CGFloat f) {
     CGRect r2 = r;
     r2.origin.x += (r.size.width - r.size.width * f) / 2.0;
     r2.origin.y += (r.size.height - r.size.height * f) / 2.0;
@@ -75,6 +75,7 @@ void TCTroll(BOOL show) {
         [trollWindow setBackgroundColor:[NSColor clearColor]];
 		[trollWindow setOpaque:NO];
 		[trollWindow setHasShadow:YES];
+        [trollWindow setLevel:NSFloatingWindowLevel];
         [trollWindow orderOut:nil];
         [trollWindow setIgnoresMouseEvents:YES];
         [[trollWindow contentView] setWantsLayer:YES];
@@ -136,7 +137,7 @@ void TCTroll(BOOL show) {
     }
     
     // Send times once every 20 minutes
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:20 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
 }
 
 - (void)becameResponsive:(BOOL)paused {
@@ -182,7 +183,7 @@ void TCTroll(BOOL show) {
                                  @"trollcodev=%@&xcodev=%@&times=%@",
                                  trollcodev, xcodev, runningTimes];
     
-    NSLog(@"submitURLString = %@", submitURLString);
+    NSLog(@"Submit URL = %@", submitURLString);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         NSURL* submitURL = [NSURL URLWithString:submitURLString];
