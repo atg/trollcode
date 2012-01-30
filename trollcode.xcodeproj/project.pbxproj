@@ -13,6 +13,8 @@
 		752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D7014D5FC1700C9F213 /* MainMenu.xib */; };
 		752C7D8214D5FD6400C9F213 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D7E14D5FD6400C9F213 /* main.m */; };
 		752C7D8314D5FD6400C9F213 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */; };
+		752C7D9B14D60E9400C9F213 /* happy-smiling-man.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 752C7D9A14D60E9400C9F213 /* happy-smiling-man.jpg */; };
+		752C7D9E14D60F1E00C9F213 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C7D9D14D60F1E00C9F213 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,25 @@
 		752C7D7F14D5FD6400C9F213 /* TCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
 		752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
 		752C7D8114D5FD6400C9F213 /* trollcode-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "trollcode-Prefix.pch"; sourceTree = "<group>"; };
+		752C7D8514D5FEE000C9F213 /* CarbonHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonHelpers.h; sourceTree = "<group>"; };
+		752C7D8614D5FEE000C9F213 /* CGSAccessibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSAccessibility.h; sourceTree = "<group>"; };
+		752C7D8714D5FEE000C9F213 /* CGSCIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSCIFilter.h; sourceTree = "<group>"; };
+		752C7D8814D5FEE000C9F213 /* CGSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSConnection.h; sourceTree = "<group>"; };
+		752C7D8914D5FEE000C9F213 /* CGSCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSCursor.h; sourceTree = "<group>"; };
+		752C7D8A14D5FEE000C9F213 /* CGSDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSDebug.h; sourceTree = "<group>"; };
+		752C7D8B14D5FEE000C9F213 /* CGSDisplays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSDisplays.h; sourceTree = "<group>"; };
+		752C7D8C14D5FEE000C9F213 /* CGSHotKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSHotKeys.h; sourceTree = "<group>"; };
+		752C7D8D14D5FEE000C9F213 /* CGSInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSInternal.h; sourceTree = "<group>"; };
+		752C7D8E14D5FEE000C9F213 /* CGSMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSMisc.h; sourceTree = "<group>"; };
+		752C7D8F14D5FEE000C9F213 /* CGSNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSNotifications.h; sourceTree = "<group>"; };
+		752C7D9014D5FEE000C9F213 /* CGSRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSRegion.h; sourceTree = "<group>"; };
+		752C7D9114D5FEE000C9F213 /* CGSSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSSession.h; sourceTree = "<group>"; };
+		752C7D9214D5FEE000C9F213 /* CGSTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSTransitions.h; sourceTree = "<group>"; };
+		752C7D9314D5FEE000C9F213 /* CGSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWindow.h; sourceTree = "<group>"; };
+		752C7D9414D5FEE000C9F213 /* CGSWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSWorkspace.h; sourceTree = "<group>"; };
+		752C7D9514D5FEE000C9F213 /* Compatability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatability.h; sourceTree = "<group>"; };
+		752C7D9A14D60E9400C9F213 /* happy-smiling-man.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "happy-smiling-man.jpg"; sourceTree = "<group>"; };
+		752C7D9D14D60F1E00C9F213 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				752C7D9E14D60F1E00C9F213 /* QuartzCore.framework in Frameworks */,
 				752C7D5C14D5FC1700C9F213 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +68,7 @@
 		752C7D4C14D5FC1600C9F213 = {
 			isa = PBXGroup;
 			children = (
+				752C7D9D14D60F1E00C9F213 /* QuartzCore.framework */,
 				752C7D7D14D5FD6400C9F213 /* source */,
 				752C7D6114D5FC1700C9F213 /* trollcode */,
 				752C7D5A14D5FC1700C9F213 /* Frameworks */,
@@ -83,6 +106,7 @@
 		752C7D6114D5FC1700C9F213 /* trollcode */ = {
 			isa = PBXGroup;
 			children = (
+				752C7D9A14D60E9400C9F213 /* happy-smiling-man.jpg */,
 				752C7D7014D5FC1700C9F213 /* MainMenu.xib */,
 				752C7D6214D5FC1700C9F213 /* Supporting Files */,
 			);
@@ -102,12 +126,37 @@
 		752C7D7D14D5FD6400C9F213 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				752C7D8414D5FEE000C9F213 /* CGSInternal */,
 				752C7D7E14D5FD6400C9F213 /* main.m */,
 				752C7D7F14D5FD6400C9F213 /* TCAppDelegate.h */,
 				752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */,
 				752C7D8114D5FD6400C9F213 /* trollcode-Prefix.pch */,
 			);
 			path = source;
+			sourceTree = "<group>";
+		};
+		752C7D8414D5FEE000C9F213 /* CGSInternal */ = {
+			isa = PBXGroup;
+			children = (
+				752C7D8514D5FEE000C9F213 /* CarbonHelpers.h */,
+				752C7D8614D5FEE000C9F213 /* CGSAccessibility.h */,
+				752C7D8714D5FEE000C9F213 /* CGSCIFilter.h */,
+				752C7D8814D5FEE000C9F213 /* CGSConnection.h */,
+				752C7D8914D5FEE000C9F213 /* CGSCursor.h */,
+				752C7D8A14D5FEE000C9F213 /* CGSDebug.h */,
+				752C7D8B14D5FEE000C9F213 /* CGSDisplays.h */,
+				752C7D8C14D5FEE000C9F213 /* CGSHotKeys.h */,
+				752C7D8D14D5FEE000C9F213 /* CGSInternal.h */,
+				752C7D8E14D5FEE000C9F213 /* CGSMisc.h */,
+				752C7D8F14D5FEE000C9F213 /* CGSNotifications.h */,
+				752C7D9014D5FEE000C9F213 /* CGSRegion.h */,
+				752C7D9114D5FEE000C9F213 /* CGSSession.h */,
+				752C7D9214D5FEE000C9F213 /* CGSTransitions.h */,
+				752C7D9314D5FEE000C9F213 /* CGSWindow.h */,
+				752C7D9414D5FEE000C9F213 /* CGSWorkspace.h */,
+				752C7D9514D5FEE000C9F213 /* Compatability.h */,
+			);
+			path = CGSInternal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +212,7 @@
 				752C7D6614D5FC1700C9F213 /* InfoPlist.strings in Resources */,
 				752C7D6C14D5FC1700C9F213 /* Credits.rtf in Resources */,
 				752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */,
+				752C7D9B14D60E9400C9F213 /* happy-smiling-man.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +282,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "source/**";
 			};
 			name = Debug;
 		};
@@ -252,6 +303,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "source/**";
 			};
 			name = Release;
 		};
@@ -259,7 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
+				GCC_PREFIX_HEADER = "source/trollcode-Prefix.pch";
 				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -271,7 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "trollcode/trollcode-Prefix.pch";
+				GCC_PREFIX_HEADER = "source/trollcode-Prefix.pch";
 				INFOPLIST_FILE = "trollcode/trollcode-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
