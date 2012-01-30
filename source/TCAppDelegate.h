@@ -18,6 +18,8 @@ void TCTroll(BOOL show);
 @interface TCAppDelegate : NSObject <NSApplicationDelegate> {
     NSTimer* timer;
     NSTimeInterval startTime;
+    
+    NSMutableArray* newtimes;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -26,5 +28,6 @@ void TCTroll(BOOL show);
 - (pid_t)pid;
 - (NSTimeInterval)adjustedTime;
 - (void)processTime;
+- (NSString*)versionForRunningApp:(NSRunningApplication*)runningApp;
 
 @end

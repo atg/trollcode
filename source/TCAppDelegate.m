@@ -46,6 +46,14 @@ void TCNotifyHandler_Responsive(CGSNotificationType type, void *data, unsigned i
     [[NSApp delegate] becameResponsive:YES];
 }
 
+CGRect CGRectShrink(CGRect r, CGFloat f) {
+    CGRect r2 = r;
+    r2.origin.x += (r.size.width - r.size.width * f) / 2.0;
+    r2.origin.y += (r.size.height - r.size.height * f) / 2.0;
+    r2.size.width *= f;
+    r2.size.height *= f;
+    return r2;
+}
 // Display or hide a spinning troll face
 void TCTroll(BOOL show) {
     
@@ -65,29 +73,41 @@ void TCTroll(BOOL show) {
         animation.duration = 2.0;
         
         [trollWindow setBackgroundColor:[NSColor clearColor]];
+		[trollWindow setOpaque:NO];
+		[trollWindow setHasShadow:YES];
         [trollWindow orderOut:nil];
+        [trollWindow setIgnoresMouseEvents:YES];
         [[trollWindow contentView] setWantsLayer:YES];
-        CALayer* backingLayer = [[CALayer alloc] init]; // [[trollWindow contentView] makeBackingLayer]
+        CALayer* backingLayer = [CALayer layer]; // [[trollWindow contentView] makeBackingLayer]
         backingLayer.frame = NSRectToCGRect([[trollWindow contentView] bounds]);
         [[trollWindow contentView] setLayer:backingLayer];
         
         NSImage* happySmilingMan = [NSImage imageNamed:@"happy-smiling-man"];
-        trollLayer = [[CALayer alloc] init];
-        [trollLayer setContents:happySmilingMan];
+        trollLayer = [CALayer layer];
         [trollLayer setFrame:[backingLayer bounds]];
-        trollLayer.contentsGravity = @"resizeAspect";
-        
         [backingLayer addSublayer:trollLayer];
+        
+        NSSize s = [happySmilingMan size];
+        CGFloat minComponent = MIN(s.width, s.height);
+        CGFloat maxComponent = MAX(s.width, s.height);
+
+        CALayer* sublayer = [CALayer layer];
+        
+        // The maths is totally broken here but whatever, it looks good
+        sublayer.frame = CGRectShrink([trollLayer bounds], minComponent / (sqrt(2.0) * maxComponent));
+        sublayer.contentsGravity = @"resizeAspect";
+        sublayer.contents = happySmilingMan;
+        [trollLayer addSublayer:sublayer];
     });
     
     if (show) {
         if (![trollWindow isVisible]) {
+            [trollLayer removeAllAnimations];
             [trollLayer addAnimation:animation forKey:@"trolololol"];
             [trollWindow orderFront:nil];
         }
     }
     else {
-        NSLog(@"UNTROLL");
         [trollLayer removeAllAnimations];
         [trollWindow orderOut:nil];
     }
@@ -97,6 +117,14 @@ void TCTroll(BOOL show) {
 
 @synthesize window = _window;
 
+- (id)init {
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    newtimes = [[NSMutableArray alloc] init];
+    return self;
+}
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	CGError err = CGSRegisterNotifyProc(TCNotifyHandler_Unresponsive, kCGSNotificationAppUnresponsive, NULL)
@@ -106,6 +134,9 @@ void TCTroll(BOOL show) {
         CGSGlobalError(err, "");
         [NSApp terminate:nil];
     }
+    
+    // Send times once every 20 minutes
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
 }
 
 - (void)becameResponsive:(BOOL)paused {
@@ -133,7 +164,42 @@ void TCTroll(BOOL show) {
     NSTimeInterval t = [self adjustedTime];
     
     // Log in a file somewhere
+    [newtimes addObject:[NSNumber numberWithDouble:t]];
 }
+- (void)sendTimes {
+    
+    // Don't send anything if there's no times
+    if (![newtimes count])
+        return;
+    
+    // Generate a string to send
+    NSString* runningTimes = [[newtimes valueForKey:@"stringValue"] componentsJoinedByString:@"$"];
+    [newtimes removeAllObjects];
+    
+    NSString* trollcodev = [self versionForRunningApp:[NSRunningApplication currentApplication]];
+    NSString* xcodev = [self versionForRunningApp:[[NSRunningApplication runningApplicationsWithBundleIdentifier:XCODE_IDENTIFIER] lastObject]];
+    NSString* submitURLString = [NSString stringWithFormat:@"http://chocolatapp.com/trollcode-server/submit.php?"
+                                 @"trollcodev=%@&xcodev=%@&times=%@",
+                                 trollcodev, xcodev, runningTimes];
+    
+    NSLog(@"submitURLString = %@", submitURLString);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSURL* submitURL = [NSURL URLWithString:submitURLString];
+        NSString* result = nil;//[NSString stringWithContentsOfURL:submitURL encoding:NSUTF8StringEncoding error:NULL];
+        NSLog(@"Our server said: %@", result);
+    });
+}
+
+- (NSString*)versionForRunningApp:(NSRunningApplication*)runningApp {
+    
+    NSDictionary* info = [NSDictionary dictionaryWithContentsOfURL:[[runningApp bundleURL] URLByAppendingPathComponent:@"Contents/Info.plist"]];
+    if (![info count])
+        return nil;
+    
+    return [info objectForKey:@"CFBundleShortVersionString"];
+}
+
 - (pid_t)pid {
     return [[[NSRunningApplication runningApplicationsWithBundleIdentifier:XCODE_IDENTIFIER] lastObject] processIdentifier];
 }
@@ -142,7 +208,6 @@ void TCTroll(BOOL show) {
     // Is Xcode responsive?
     
     pid_t xcodePid = [self pid];
-    NSLog(@"xcodePid = %d", xcodePid);
     if (xcodePid == 0)
         goto giveUp;
     
@@ -150,12 +215,10 @@ void TCTroll(BOOL show) {
     ProcessSerialNumber psn;
     OSStatus status = GetProcessForPID(xcodePid, &psn);
     
-    NSLog(@"status = %d", status);
     if (status != 0)
         goto giveUp;
     
     bool b = CGSEventIsAppUnresponsive(conn, &psn);
-    NSLog(@"Responsive: %d : %lf", b, [self adjustedTime]);
     if (b) {
         // Still trollin'
         if ([self adjustedTime] > 0.5)
