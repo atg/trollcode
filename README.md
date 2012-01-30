@@ -7,7 +7,7 @@ Xcode getting you down? The beachball making you blue? What you need is ***troll
 
 ## Installation
 
-Download from [here](http://files.fileability.net/Trollcode_0.1.zip). Then just run it and wait (probably not very long).
+Download from [here](http://files.fileability.net/trollcode_0.2.zip). Then just run it and wait (probably not very long).
 
 ## License
 
