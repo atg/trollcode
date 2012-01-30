@@ -15,6 +15,8 @@
 		752C7D8314D5FD6400C9F213 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C7D8014D5FD6400C9F213 /* TCAppDelegate.m */; };
 		752C7D9E14D60F1E00C9F213 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752C7D9D14D60F1E00C9F213 /* QuartzCore.framework */; };
 		752C7DA214D629A600C9F213 /* happy-smiling-man.png in Resources */ = {isa = PBXBuildFile; fileRef = 752C7DA114D629A600C9F213 /* happy-smiling-man.png */; };
+		752C7DA914D63D9700C9F213 /* troll-small-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 752C7DA714D63D9700C9F213 /* troll-small-white.png */; };
+		752C7DAA14D63D9700C9F213 /* troll-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 752C7DA814D63D9700C9F213 /* troll-small.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		752C7D9514D5FEE000C9F213 /* Compatability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatability.h; sourceTree = "<group>"; };
 		752C7D9D14D60F1E00C9F213 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		752C7DA114D629A600C9F213 /* happy-smiling-man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy-smiling-man.png"; sourceTree = "<group>"; };
+		752C7DA714D63D9700C9F213 /* troll-small-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll-small-white.png"; sourceTree = "<group>"; };
+		752C7DA814D63D9700C9F213 /* troll-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll-small.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 		752C7D6114D5FC1700C9F213 /* trollcode */ = {
 			isa = PBXGroup;
 			children = (
+				752C7DA714D63D9700C9F213 /* troll-small-white.png */,
+				752C7DA814D63D9700C9F213 /* troll-small.png */,
 				752C7DA114D629A600C9F213 /* happy-smiling-man.png */,
 				752C7D7014D5FC1700C9F213 /* MainMenu.xib */,
 				752C7D6214D5FC1700C9F213 /* Supporting Files */,
@@ -213,6 +219,8 @@
 				752C7D6C14D5FC1700C9F213 /* Credits.rtf in Resources */,
 				752C7D7214D5FC1700C9F213 /* MainMenu.xib in Resources */,
 				752C7DA214D629A600C9F213 /* happy-smiling-man.png in Resources */,
+				752C7DA914D63D9700C9F213 /* troll-small-white.png in Resources */,
+				752C7DAA14D63D9700C9F213 /* troll-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

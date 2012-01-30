@@ -20,14 +20,17 @@ void TCTroll(BOOL show);
     NSTimeInterval startTime;
     
     NSMutableArray* newtimes;
+    NSStatusItem* statusItem;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) IBOutlet NSMenu *statusMenu;
 
 - (void)becameResponsive:(BOOL)paused;
 - (pid_t)pid;
 - (NSTimeInterval)adjustedTime;
 - (void)processTime;
 - (NSString*)versionForRunningApp:(NSRunningApplication*)runningApp;
+- (IBAction)showPreferences:(id)sender;
 
 @end

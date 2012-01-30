@@ -103,6 +103,10 @@ void TCTroll(BOOL show) {
     
     if (show) {
         if (![trollWindow isVisible]) {
+            NSNumber* shouldShowTroll = [[NSUserDefaults standardUserDefaults] valueForKey:@"TCShowTrollface"];
+            if (shouldShowTroll && [shouldShowTroll boolValue] == NO)
+                return;
+            
             [trollLayer removeAllAnimations];
             [trollLayer addAnimation:animation forKey:@"trolololol"];
             [trollWindow orderFront:nil];
@@ -117,6 +121,7 @@ void TCTroll(BOOL show) {
 @implementation TCAppDelegate
 
 @synthesize window = _window;
+@synthesize statusMenu;
 
 - (id)init {
     self = [super init];
@@ -137,7 +142,19 @@ void TCTroll(BOOL show) {
     }
     
     // Send times once every 20 minutes
+//    [NSTimer scheduledTimerWithTimeInterval:20 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
     [NSTimer scheduledTimerWithTimeInterval:20 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
+    
+    NSMutableDictionary* registeredDefaults = [[NSMutableDictionary alloc] init];
+    [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCShowTrollface"];
+    [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCSendHangDurations"];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:registeredDefaults];
+}
+- (void)awakeFromNib {
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:16];
+    [statusItem setImage:[NSImage imageNamed:@"troll-small"]];
+    [statusItem setAlternateImage:[NSImage imageNamed:@"troll-small-white"]];
+    [statusItem setMenu:statusMenu];
 }
 
 - (void)becameResponsive:(BOOL)paused {
@@ -173,6 +190,11 @@ void TCTroll(BOOL show) {
     if (![newtimes count])
         return;
     
+    // Don't send anything if the user has opted out
+    NSNumber* shouldSendTimes = [[NSUserDefaults standardUserDefaults] valueForKey:@"TCSendHangDurations"];
+    if (shouldSendTimes && [shouldSendTimes boolValue] == NO)
+        return;
+    
     // Generate a string to send
     NSString* runningTimes = [[newtimes valueForKey:@"stringValue"] componentsJoinedByString:@"$"];
     [newtimes removeAllObjects];
@@ -199,6 +221,12 @@ void TCTroll(BOOL show) {
         return nil;
     
     return [info objectForKey:@"CFBundleShortVersionString"];
+}
+
+- (IBAction)showPreferences:(id)sender {
+    [NSApp activateIgnoringOtherApps:YES];
+    [self.window center];
+    [self.window makeKeyAndOrderFront:nil];
 }
 
 - (pid_t)pid {
