@@ -141,9 +141,8 @@ void TCTroll(BOOL show) {
         [NSApp terminate:nil];
     }
     
-    // Send times once every 20 minutes
-//    [NSTimer scheduledTimerWithTimeInterval:20 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
-    [NSTimer scheduledTimerWithTimeInterval:20 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
+    // Send times once every 10 minutes
+    [NSTimer scheduledTimerWithTimeInterval:10 * 60 target:self selector:@selector(sendTimes) userInfo:nil repeats:YES];
     
     NSMutableDictionary* registeredDefaults = [[NSMutableDictionary alloc] init];
     [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCShowTrollface"];
@@ -164,6 +163,7 @@ void TCTroll(BOOL show) {
         timer = nil;
     }
     if (paused) {
+        NSLog(@"Time: %lf", [self adjustedTime]);
         [self processTime];
         startTime = 0;
         return;
@@ -250,7 +250,7 @@ void TCTroll(BOOL show) {
     bool b = CGSEventIsAppUnresponsive(conn, &psn);
     if (b) {
         // Still trollin'
-        if ([self adjustedTime] > 0.5)
+        if ([self adjustedTime] > 0.2)
             TCTroll(YES);
     }
     else {
