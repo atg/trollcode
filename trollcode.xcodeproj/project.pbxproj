@@ -18,6 +18,7 @@
 		752C7DA914D63D9700C9F213 /* troll-small-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 752C7DA714D63D9700C9F213 /* troll-small-white.png */; };
 		752C7DAA14D63D9700C9F213 /* troll-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 752C7DA814D63D9700C9F213 /* troll-small.png */; };
 		75E117D714D6ED450091347A /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 75E117D614D6ED450091347A /* icon.icns */; };
+		C02DCC0414D96CEE001BAD43 /* EBLaunchServices.m in Sources */ = {isa = PBXBuildFile; fileRef = C02DCC0314D96CEE001BAD43 /* EBLaunchServices.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		752C7DA714D63D9700C9F213 /* troll-small-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll-small-white.png"; sourceTree = "<group>"; };
 		752C7DA814D63D9700C9F213 /* troll-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "troll-small.png"; sourceTree = "<group>"; };
 		75E117D614D6ED450091347A /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		C02DCC0214D96CEE001BAD43 /* EBLaunchServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBLaunchServices.h; path = EBLaunchServices/EBLaunchServices.h; sourceTree = "<group>"; };
+		C02DCC0314D96CEE001BAD43 /* EBLaunchServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EBLaunchServices.m; path = EBLaunchServices/EBLaunchServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,7 @@
 		752C7D7D14D5FD6400C9F213 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				C02DCBFC14D95A76001BAD43 /* eric_bro's */,
 				752C7D8414D5FEE000C9F213 /* CGSInternal */,
 				752C7D7E14D5FD6400C9F213 /* main.m */,
 				752C7D7F14D5FD6400C9F213 /* TCAppDelegate.h */,
@@ -166,6 +170,15 @@
 				752C7D9514D5FEE000C9F213 /* Compatability.h */,
 			);
 			path = CGSInternal;
+			sourceTree = "<group>";
+		};
+		C02DCBFC14D95A76001BAD43 /* eric_bro's */ = {
+			isa = PBXGroup;
+			children = (
+				C02DCC0214D96CEE001BAD43 /* EBLaunchServices.h */,
+				C02DCC0314D96CEE001BAD43 /* EBLaunchServices.m */,
+			);
+			name = "eric_bro's";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +250,7 @@
 			files = (
 				752C7D8214D5FD6400C9F213 /* main.m in Sources */,
 				752C7D8314D5FD6400C9F213 /* TCAppDelegate.m in Sources */,
+				C02DCC0414D96CEE001BAD43 /* EBLaunchServices.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
