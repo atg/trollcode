@@ -5,6 +5,7 @@
 
 
 #import "TCAppDelegate.h"
+#import "EBLaunchServices.h"
 #import <dispatch/source.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -14,6 +15,9 @@
 
 #define sanity_check() assert(kCGSNotificationAppUnresponsive == type || kCGSNotificationAppResponsive == type); assert(data); assert(dataLength >= sizeof(CGSProcessNotificationData))
 
+#define kOldBundleAbsolutePathKey                  @"kOldBundleAbsolutePathKey"
+#define kShouldApplicationLaunchAtSystemStartupKey @"kShouldApplicationLaunchAtSystemStartupKey"
+static NSURL *currentBundleURL = nil;
 
 static NSRunningApplication* TCCheckIsXcode(void *data) {
     CGSProcessNotificationData *noteData = (CGSProcessNotificationData*)data;
@@ -129,6 +133,9 @@ void TCTroll(BOOL show) {
         return nil;
     
     newtimes = [[NSMutableArray alloc] init];
+    if (!currentBundleURL) {
+        currentBundleURL = [[NSBundle mainBundle] bundleURL];
+    }
     return self;
 }
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -148,7 +155,39 @@ void TCTroll(BOOL show) {
     [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCShowTrollface"];
     [registeredDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"TCSendHangDurations"];
     [[NSUserDefaults standardUserDefaults] registerDefaults:registeredDefaults];
+    
+    /* ----------------------------------------------------------------------- */
+    NSUserDefaults *user_defaults = [NSUserDefaults standardUserDefaults];
+    /* Is it a first launch? If so - set some default keys. */
+    if ( ! [user_defaults objectForKey: kShouldApplicationLaunchAtSystemStartupKey]) {
+        NSLog(@"[debug] - first launch");
+        [user_defaults setObject: [NSNumber numberWithBool: NO] 
+                          forKey: kShouldApplicationLaunchAtSystemStartupKey];
+        [user_defaults setObject: [currentBundleURL absoluteString] 
+                          forKey:kOldBundleAbsolutePathKey];
+    } else {
+        /* Check if an application's file (bundle) was moved to another location.
+         If so - we have to remove an old bundle path from LoginItems and (if neccessary) add
+         a new one.
+         */
+        BOOL shouldAutoStart = [[user_defaults objectForKey: kShouldApplicationLaunchAtSystemStartupKey] boolValue];
+        id oldBundlePath     = [user_defaults objectForKey: kOldBundleAbsolutePathKey];
+        if (oldBundlePath) {
+            if ( ! [oldBundlePath isEqual: [currentBundleURL absoluteString]]) {
+                [EBLaunchServices removeItemWithURL: oldBundlePath 
+                                           fromList: kLSSharedFileListSessionLoginItems];
+                [user_defaults setObject: currentBundleURL forKey: kOldBundleAbsolutePathKey];
+                if (shouldAutoStart) {
+                    [EBLaunchServices addItemWithURL: currentBundleURL
+                                              toList: kLSSharedFileListSessionLoginItems];
+                }
+            }
+        }
+    }
+    [user_defaults synchronize];
 }
+
+
 - (void)awakeFromNib {
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:16];
     [statusItem setImage:[NSImage imageNamed:@"troll-small"]];
@@ -227,11 +266,33 @@ void TCTroll(BOOL show) {
     return [info objectForKey:@"CFBundleShortVersionString"];
 }
 
+#pragma mark IBActions
+
 - (IBAction)showPreferences:(id)sender {
     [NSApp activateIgnoringOtherApps:YES];
     [self.window center];
     [self.window makeKeyAndOrderFront:nil];
 }
+
+- (IBAction)toggleShouldLaunchAtSystemStartup:(id)sender
+{
+    if ([(NSButton *)sender state] == 1) {
+        if ( ! [EBLaunchServices addItemWithURL: currentBundleURL 
+                                         toList: kLSSharedFileListSessionLoginItems]) {
+            return;
+        }
+    } else {
+        if ( ! [EBLaunchServices removeItemWithURL: currentBundleURL 
+                                          fromList: kLSSharedFileListSessionLoginItems]) {
+            return;
+        }        
+    }
+    [[NSUserDefaults standardUserDefaults] setObject: [NSNumber numberWithBool: [(NSButton *)sender state]] 
+                                              forKey: kShouldApplicationLaunchAtSystemStartupKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
 
 - (pid_t)pid {
     return [[[NSRunningApplication runningApplicationsWithBundleIdentifier:XCODE_IDENTIFIER] lastObject] processIdentifier];

@@ -33,4 +33,5 @@ void TCTroll(BOOL show);
 - (NSString*)versionForRunningApp:(NSRunningApplication*)runningApp;
 - (IBAction)showPreferences:(id)sender;
 
+- (IBAction)toggleShouldLaunchAtSystemStartup:(id)sender;
 @end

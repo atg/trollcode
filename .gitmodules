@@ -1,0 +1,3 @@
+[submodule "source/EBLaunchServices"]
+	path = source/EBLaunchServices
+	url = git://github.com/Eric-Bro/EBLaunchServices.git
